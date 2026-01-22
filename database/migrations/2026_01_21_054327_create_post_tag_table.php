@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('post_tag', function (Blueprint $table) {
-            $table->id();
+            $table->uuid(column: 'id')->primary(); // UUID - Universally Unique Identifier it cosists of letters and numbers 36 characters 128 bits
             $table->foreignId('post_id')->constrained('post')->onDelete('cascade');
             $table->foreignId('tag_id')->constrained('tag')->onDelete('cascade');
+            $table->unique(['post_id','tag_id']);// this means that a post can have a tag only once
             $table->timestamps();
         });
     }

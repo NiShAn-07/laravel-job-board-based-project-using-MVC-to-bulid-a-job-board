@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tag', function (Blueprint $table) {
-            $table->id();
+            $table->uuid(column: 'id')->primary(); // UUID - Universally Unique Identifier it cosists of letters and numbers 36 characters 128 bits
             $table->string('title');
             $table->timestamps();
         });

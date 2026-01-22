@@ -5,6 +5,11 @@ namespace App\Models;
 
 class Job 
 {
+
+protected $primaryKey = 'id'; // this is the primary key of the table
+protected $keyType = 'string'; // UUID - Universally Unique Identifier it cosists of letters and numbers 36 characters 128 bits
+public $incrementing = false; // this indicates if the primary key is auto-incrementing
+
     public static function all()
     {
 

@@ -22,7 +22,7 @@ function create(){
     //     "post_id" => 5
     // ]);
 
-    Comment::factory(1000000)->create();
+    Comment::factory(100)->create();
 
 return redirect('/comments'); // this will redirect to the blog index page
 }
