@@ -1,6 +1,6 @@
 <x-layout :title="$title">
 
-<h2>Show Page</h2>
+<h2>Edit Page</h2>
 
 
 </x-layout>

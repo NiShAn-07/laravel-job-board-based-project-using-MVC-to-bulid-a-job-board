@@ -2,41 +2,66 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
-    
-function index(){
-    $data = Tag::all();
-    return view("tag.index" , ["tags" => $data , "title" => "Tag"]);
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $data = Tag::all();
+            return view("tag.index" , ["tags" => $data , "title" => "Tag"]);
+    }
 
-}
-function create(){
-    
-    $post =Tag::create([
-     'title'=>'Java'
-    ]);
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view("tag.create");
+    }
 
-// this will redirect to the blog index page
-}
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        // TO DO
+    }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        return view("tag.show");
+    }
 
-function testManyToMany(){
-    $post1 = Post::find(1);
-    $post2 = Post::find(3);
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        return view("tag.edit");
+    }
 
-$post1->tags()->syncWithoutDetaching([1, 3]);
-$post2->tags()->syncWithoutDetaching([2, 1]);
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        // TO DO
+    }
 
-
-    return response()->json([
-        'post1' => $post1->tags,
-        'post2' => $post2->tags
-    ]);
-}
-
- 
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        Tag::destroy($id);
+        // TO DO
+    }
 }

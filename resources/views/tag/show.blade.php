@@ -1,5 +1,5 @@
 <x-layout>
 
-<h2>Tag page</h2>
+<h2>Show page</h2>
 
 </x-layout>

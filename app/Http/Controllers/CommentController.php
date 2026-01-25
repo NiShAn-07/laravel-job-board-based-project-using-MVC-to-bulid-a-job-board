@@ -7,25 +7,66 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    
-function index(){
-    $data = Comment::cursorPaginate(10);
-    return view("comment.index" , ["comments" => $data , "title" => "comment"]);
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $data = Comment::cursorPaginate(10);
+         return view("comment.index" , ["comments" => $data , "title" => "comment"]);
 
-}
-function create(){
-    
-    // Comment::create([
-       
-    //     "author" =>"Ali",
-    //     "content" => "This is a comment",
-    //     "post_id" => 5
-    // ]);
+        //
+    }
 
-    Comment::factory(100)->create();
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view("comment.create" , ["title"=> "Create"]);
+    }
 
-return redirect('/comments'); // this will redirect to the blog index page
-}
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //      TO Do this will be completed in form handling section
 
+    }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $comment = Comment::find($id);
+        return view('comment.show' , ["title"=> "Show"]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        // TO DO this will be completed in form handling section
+        // return view("comment.edit" , ["title"=> "edit"]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        Comment::destroy($id); // delete 
+        // TO DO this will be completed in form handling section
+    }
 }

@@ -6,33 +6,20 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\JopController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 
 // Home Route
-Route::get('/' , [IndexController::class , 'Index']);
+Route::get('/' , IndexController::class ); // invokable controller
+Route::get('/about', AboutController::class) ; // invokable controller
+Route::get('/contact', ContactController::class) ;// invokable controller
 
-// Job Routes
 Route::get('/job', [JopController::class , 'index']) ;
-
-// Static Pages
-Route::get('/contact', [IndexController::class , 'contact']) ;
-Route::get('/about', [IndexController::class , 'about']) ;
 
 
 // Blog Routes
-Route::get('/blog' , [PostController::class , 'index']) ;
-
-Route::get('/blog/create', [PostController::class ,'create']) ; //this must be before the show route
-Route::get('/blog/delete' , [PostController::class , 'delete']) ;
-Route::get('/blog/{id}' , [PostController::class , 'show']) ;
-
-
+Route::resource('blog' , PostController::class) ; //this line create all routes for blog (index, create, store, show, edit, update, destroy)
 // comments Routes
-Route::get('/comments', [CommentController::class ,'index']) ;
-Route::get('/comments/create', [CommentController::class ,'create']) ;       
-
-
-
+Route::resource('comments', CommentController::class) ;
 // Tags Routes
-Route::get('/tag' , [App\Http\Controllers\TagController::class , 'index']) ;
-Route::get('/tag/create', [App\Http\Controllers\TagController::class ,'create']) ;
-Route::get('/tag/test-many', [App\Http\Controllers\TagController::class ,'testManyToMany']) ;
+Route::resource('tags', CommentController::class) ;
