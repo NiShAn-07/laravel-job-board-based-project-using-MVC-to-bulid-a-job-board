@@ -1,4 +1,5 @@
 <?php
+// this file is responsible for handling all incoming requests to the application
 
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;

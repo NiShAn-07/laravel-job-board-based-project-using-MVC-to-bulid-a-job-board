@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => env('AUTH_GUARD', 'web'),
-        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+        'guard' => env('AUTH_GUARD', 'web'), // guard is used to define how users are authenticated for each request
+        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'), // passwords is used to define which password reset configuration to use
     ],
 
     /*
@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],      
     ],
 
     /*
