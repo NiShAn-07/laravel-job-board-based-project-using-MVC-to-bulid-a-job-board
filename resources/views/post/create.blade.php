@@ -9,7 +9,7 @@
       <p class="mt-1 text-sm/6">This information will be displayed publicly so be careful what you share.</p>
 
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-       <div class="sm:col-span-3">
+       <div class="col-span-full">
           <label for="title" class="block text-sm/6 font-medium">Title</label>
           <div class="mt-2">
             <input
@@ -30,26 +30,7 @@
           @enderror
         </div>
 
-        <div class="sm:col-span-3">
-          <label for="author" class="block text-sm/6 font-medium">Author</label>
-          <div class="mt-2">
-            <input
-              id="author"
-              value="{{ old('author') }}"
-              type="text"
-              name="author"
-              autocomplete="family-name"
-              class="block w-full rounded-md px-3 py-2
-                     text-base 
-                     border border-gray-700 ring-1 ring-gray-800
-                     focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/60
-                     sm:text-sm/6"
-            />
-          </div>
-          @error('author')
-            <p class="text-sm/6 text-red-600 mt-2">{{ $message }}</p>
-          @enderror
-        </div>
+ 
 
         <div class="col-span-full">
           <label for="body" class="block text-sm/6 font-medium">Content</label>

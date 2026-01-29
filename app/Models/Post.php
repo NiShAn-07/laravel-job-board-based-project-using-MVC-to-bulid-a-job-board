@@ -21,6 +21,7 @@ protected $fillable = [ // tihs is for mass assignment
     'body',
     'author',
     'published',
+    'user_id',
 ];
 
 protected $guarded = [ // this is to protect these fields from mass assignment
@@ -29,6 +30,9 @@ protected $guarded = [ // this is to protect these fields from mass assignment
     'updated_at',
 ];
 
+public function user(){
+    return $this->belongsTo(User::class); // this bring the ''''user'''' related to this ""post""
+}
 
 public function comments(){
     return $this->hasMany(Comment::class); // this bring all ''''comments'''' related to this ""post""

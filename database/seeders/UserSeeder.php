@@ -18,6 +18,16 @@ User::create([
     
         'name' => 'Admin User',
         'email' => 'admin@gmail.com',
-        'password' => Hash::make('password123'),]);
+        'role' => 'admin',
+        'password' => Hash::make('12345678'),]);
+
+
+User::create([
+    
+        'name' => 'Edito man User',
+        'email' => 'edito@gmail.com',
+        'role' => 'editor',
+        'password' => Hash::make('12345678'),]);
+
 }
 }

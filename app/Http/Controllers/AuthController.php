@@ -43,7 +43,7 @@ public function Login(LoginRequest $request) {
 
     if(Auth::attempt($credentials)) { // this will check the credentials
         // Authentication passed...
-        $request =  redirect()->regenerate();// prevent session fixation
+        $request->session()->regenerate();// prevent session fixation
         return redirect('/') ;
     } else {
         return back()->withErrors([
